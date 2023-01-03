@@ -27,7 +27,11 @@
         <li><a href="/06-reactive/">Reactive Animations</a></li>
         <li><a href="/examples/inflight/">Inflight Example</a></li>
       </ul>
-      <div class="ball"></div>
+      
+      <div class="container"><div class="ball"></div></div>
     </div>
   </body>
+  <script>document.body.addEventListener('click', () => {
+    document.body.style.setProperty('--primary-color', 'red')
+  })</script>
 </html>
