@@ -5,6 +5,7 @@
   --color-bg-dark: #152547;
   --color-secondary: #d62d1f;
   --color-secondary-light: #dc594e;
+  --transition-duration: 0.3s;
 }
 
 body {
@@ -172,15 +173,21 @@ main {
   aspect-ratio: 0.6;
   height: 40vh;
   flex-shrink: 0;
+  cursor: pointer;
   // animation: shift-up 0.3s calc(var(--i) * 0.1s) backwards;
   // transition: opacity 0.3s;
   font-weight: 400;
+  transition-property: opacity, transform;
+  transition-duration: var(--transition-duration);
 
   &:first-child {
     margin-left: 2rem;
   }
   &:last-child {
     margin-right: 2rem;
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -211,6 +218,8 @@ main {
   height: 3rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: background, var(--transition-duration);
   // padding: 1rem 2rem 1rem 3rem;
 
   &:hover,
@@ -295,9 +304,11 @@ main {
   align-items: center;
   font-weight: 600;
   cursor: pointer;
-  // transition: all 0.3s;
+  transition-property: transform, background-color;
+  transition-duration: var(--transition-duration);
 
   &:hover {
+    transform: scale(1.1);
     background-color: var(--color-secondary-light);
   }
 }
@@ -311,6 +322,7 @@ main {
   border: none;
   color: inherit;
   padding: 1rem;
+  cursor: pointer;
 }
 
 [data-show]:not([data-active]) {
@@ -362,6 +374,10 @@ main {
   align-items: flex-start;
   gap: 1rem;
   overflow-x: auto;
+
+  &:hover > .ui-album:not(:hover) {
+    opacity: 0.5;
+  }
 }
 
 .ui-albums-header {
@@ -382,6 +398,9 @@ main {
   width: 20vw;
   flex-shrink: 0;
   background-color: var(--color-bg-dark);
+  cursor: pointer;
+  transition-property: opacity, transform;
+  transition-duration: var(--transition-duration);
   // animation: shift-up 0.3s calc(var(--i) * 0.1s) both;
 
   &:first-child {
@@ -389,6 +408,9 @@ main {
   }
   &:last-child {
     margin-right: 2rem;
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
