@@ -45,6 +45,28 @@ Also known as CSS custom properties, because they are inherited and cascade
 - Use transition when you want to leave the 'animation' between two states to CSS.
 - Lots of built in CSS states: :hover, :active, :target, :focus etc
 
+# Week 3
+
+## Animations
+
+While transitions are used to transition between two states, animations can be used to explicitly tell CSS what happens between those states (keyframes).
+
+After an animation is complete or if there's a delay on it, it resets to initial state. This can be changed by:
+
+- animation-fill-mode: forwards / backwards / both
+
+Debugging in chrome dev tools is made easy
+
+- Open dev tools
+- CMD + Shift + P
+- Type Animations
+- Reload the page
+- Inspect & play with animations
+
+## Choreography
+
+Animations and transitions that coordinate with one another
+
 ---
 
 ### Ideas for Sl library
@@ -54,3 +76,4 @@ Setup
 - Use CSS variables instead of SASS variables, since they can be used in JS
 - useRef to change element styles using CSS variables as string: "--main-color"
 - enum to match the colors/CSS variables: "enum COLORS { main: "--main-color" }
+- Shake button and/or input when it is faulty

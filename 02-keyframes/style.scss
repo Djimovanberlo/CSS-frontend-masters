@@ -26,8 +26,46 @@ body {
   grid-template-rows: 1fr;
   grid-column-gap: 1rem;
   grid-template-areas: 'input button';
+  animation-name: move-in, shake-form;
+  animation-duration: 2s, 500ms;
+  animation-delay: 0s, 2s;
+  position: fixed;
 
   // Add an animation here
+  @keyframes move-in {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes shake-form {
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(5%);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-5%);
+    }
+    from,
+    to {
+      transform: none;
+    }
+  }
 
   --color: var(--color-gray);
   &:focus-within {
@@ -37,6 +75,10 @@ body {
   > .ui-input,
   > .ui-button {
     // Add an animation here
+    animation-name: move-in;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
   }
 }
 
@@ -68,12 +110,4 @@ body {
 
 .ui-form {
   overflow: hidden;
-}
-
-@keyframes slide-up {
-  // Add keyframes here
-}
-
-@keyframes shake {
-  // Add a shake animation here
 }

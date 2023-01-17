@@ -38,19 +38,37 @@ ul {
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
   background: #fb2324;
-  transition: all 2s 0.5s ease-in-out;
+  animation-name: move-like-square, red-to-green;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
-  &:hover {
-    background: blue;
-    transform: scale(2);
+@keyframes move-like-square {
+  from,
+  to {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(20vw);
+  }
+
+  50% {
+    transform: translateX(20vw) translateY(20vw);
+  }
+
+  75% {
+    transform: translateX(0) translateY(20vw);
   }
 }
 
-@keyframes slide-right {
+@keyframes red-to-green {
   from {
-    transform: translateX(0);
+    background: red;
   }
+
   to {
-    transform: translateX(50vw);
+    background: green;
   }
 }
