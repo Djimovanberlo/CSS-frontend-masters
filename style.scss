@@ -31,44 +31,23 @@ ul {
 }
 
 .ball {
-  --primary-color: darkgreen;
   height: 10vmin;
   width: 10vmin;
   left: 50vw;
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
   background: #fb2324;
-  animation-name: move-like-square, red-to-green;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  --duration: 1s;
+  --stagger: 0.5s;
+  --interval: calc(var(--duration) - var(--stagger));
+  animation: move-right var(--duration) calc(var(--interval) * var(--i)) both;
 }
 
-@keyframes move-like-square {
-  from,
-  to {
+@keyframes move-right {
+  from {
     transform: none;
   }
-
-  25% {
-    transform: translateX(20vw);
-  }
-
-  50% {
-    transform: translateX(20vw) translateY(20vw);
-  }
-
-  75% {
-    transform: translateX(0) translateY(20vw);
-  }
-}
-
-@keyframes red-to-green {
-  from {
-    background: red;
-  }
-
   to {
-    background: green;
+    transform: translateX(25vw);
   }
 }

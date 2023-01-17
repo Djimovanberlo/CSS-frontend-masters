@@ -65,7 +65,7 @@ Debugging in chrome dev tools is made easy
 
 ## Choreography
 
-Animations and transitions that coordinate with one another
+Animations and transitions that coordinate with one another.
 
 ---
 
