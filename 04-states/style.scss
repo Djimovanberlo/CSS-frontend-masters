@@ -72,6 +72,22 @@ body {
   transition: inherit;
 }
 
+@keyframes shake-form {
+  40%,
+  80% {
+    transform: translateX(5%);
+  }
+  30%,
+  70%,
+  90% {
+    transform: translateX(-5%);
+  }
+  from,
+  to {
+    transform: none;
+  }
+}
+
 .ui-button {
   grid-area: button;
   border: none;
@@ -81,7 +97,25 @@ body {
   border-radius: 0.25rem;
   height: var(--input-height);
   background-color: var(--color);
-  transition: inherit;
+
+  &[data-state='success'] {
+    background-color: green;
+  }
+  &[data-state='error'] {
+    background-color: red;
+    animation-name: shake-form;
+  }
+  &[data-state='loading'] {
+    background-color: grey;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 [data-show]:not([data-active]) {

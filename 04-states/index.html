@@ -10,16 +10,37 @@
   <body>
     <form class="ui-form" data-state="subscribe">
       <input class="ui-input" type="email" placeholder="your@email.com" />
-      <button class="ui-button" type="button" onclick="setState('subscribing')">
-        <span>Subscribe</span>
-        <span>Subscribing</span>
-        <span>Success!</span>
-        <span>Error</span>
+      <button class="ui-button" type="button">
+        <span class="ui-button-content">Subscribe</span>
+        <!-- <span class="ui-button-content">Subscribing</span>
+        <span class="ui-button-content">Success!</span>
+        <span class="ui-button-content">Error</span> -->
       </button>
     </form>
   </body>
   <script>
-    const form = document.querySelector('.ui-form');
+    const machine = {
+      initial: 'start',
+      states: {
+        start: { text: 'Subscribe', state: 'start', CLICK: 'loading' },
+        loading: { text: 'Subscribing...', state: 'loading', CLICK: 'random' },
+        error: { text: 'Error', state: 'error', CLICK: 'start' },
+        success: { text: 'Success!', state: 'success', CLICK: 'start' },
+      },
+    }
+
+    var button = document.querySelector('.ui-button')
+    const form = document.querySelector('.ui-form')
+
+    button.addEventListener('click', () => {
+      const currentState = button.dataset.state ?? machine.initial
+      const temp = machine.states[currentState].CLICK
+      const nextState = temp === 'random' ? (!!Math.round(Math.random()) ? 'error' : 'success') : temp
+      button.dataset.state = nextState
+
+      var content = document.querySelector('.ui-button-content')
+      content.textContent = machine.states[nextState].text
+    })
 
     // ...
   </script>

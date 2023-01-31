@@ -67,13 +67,23 @@ Debugging in chrome dev tools is made easy
 
 Animations and transitions that coordinate with one another.
 
+- Use delay & CSS variables to time different animations.
+- Use inline CSS variables (style="--i: 1" for iterations); you can access these CSS variables in your CSS file to calculate delays and such
+
+## States
+
+- Use data html element as state to pass state of a component: HTML: <div data-state="loading" />, CSS: &[data-state="loading"] {...}
+
 ---
 
 ### Ideas for Sl library
 
 Setup
 
-- Use CSS variables instead of SASS variables, since they can be used in JS
-- useRef to change element styles using CSS variables as string: "--main-color"
-- enum to match the colors/CSS variables: "enum COLORS { main: "--main-color" }
+- Mixin for smooth dropdown
+- Scale + shadow for clickable cards
+- Fade / slide iteratively for forms - using choreography
 - Shake button and/or input when it is faulty
+- Some effects for button:hover - shine, scale, fill color from direction, iteratively animate containing letters
+- Button:active (so onClick) - scale down
+- Fix Next Image with relative position of wrapper (?) and layout="fill"
