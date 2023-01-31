@@ -99,14 +99,14 @@ body {
   background-color: var(--color);
 
   &[data-state='success'] {
-    background-color: green;
+    --color: green;
   }
   &[data-state='error'] {
-    background-color: red;
+    --color: red;
     animation-name: shake-form;
   }
   &[data-state='loading'] {
-    background-color: grey;
+    --color: grey;
 
     &:hover {
       cursor: not-allowed;
