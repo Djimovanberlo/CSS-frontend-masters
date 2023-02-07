@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.scss" />
   </head>
   <body>
-    <form class="ui-form" data-state="subscribe">
+    <form class="ui-form">
       <input class="ui-input" type="email" placeholder="your@email.com" />
       <button class="ui-button" type="button">
         <span class="ui-button-content">Subscribe</span>
@@ -33,10 +33,11 @@
     const form = document.querySelector('.ui-form')
 
     button.addEventListener('click', () => {
-      const currentState = button.dataset.state ?? machine.initial
+      const currentState = form.dataset.state ?? machine.initial
       const temp = machine.states[currentState].CLICK
       const nextState = temp === 'random' ? (!!Math.round(Math.random()) ? 'error' : 'success') : temp
-      button.dataset.state = nextState
+
+      form.dataset.state = nextState
 
       var content = document.querySelector('.ui-button-content')
       content.textContent = machine.states[nextState].text

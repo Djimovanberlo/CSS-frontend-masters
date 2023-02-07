@@ -29,21 +29,29 @@ body {
   transition: all var(--transition-duration) var(--transition-easing);
   will-change: transform;
 
+  & > .ui-button:hover {
+    cursor: pointer;
+  }
+
   --color: var(--color-gray);
   &:focus-within {
     --color: var(--color-blue);
   }
 
-  &[data-state='subscribe'] {
-    // Add an animation here
-  }
+  &[data-state='loading'] {
+    --color: grey;
 
-  &[data-state='success'] {
-    // Change the color and/or add an animation here
+    & > .ui-button:hover {
+      cursor: not-allowed;
+    }
   }
 
   &[data-state='error'] {
-    // Change the color and/or add an animation here
+    --color: red;
+    animation-name: shake-form;
+  }
+  &[data-state='success'] {
+    --color: green;
   }
 
   > .ui-input,
@@ -97,25 +105,6 @@ body {
   border-radius: 0.25rem;
   height: var(--input-height);
   background-color: var(--color);
-
-  &[data-state='success'] {
-    --color: green;
-  }
-  &[data-state='error'] {
-    --color: red;
-    animation-name: shake-form;
-  }
-  &[data-state='loading'] {
-    --color: grey;
-
-    &:hover {
-      cursor: not-allowed;
-    }
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 [data-show]:not([data-active]) {
