@@ -54,6 +54,7 @@ While transitions are used to transition between two states, animations can be u
 After an animation is complete or if there's a delay on it, it resets to initial state. This can be changed by:
 
 - animation-fill-mode: forwards / backwards / both
+  These properties whether and how an animation ends: does it reset when it ends? Does it stay in the final state? Etc
 
 Debugging in chrome dev tools is made easy
 
@@ -73,6 +74,16 @@ Animations and transitions that coordinate with one another.
 ## States
 
 - Use data html element as state to pass state of a component: HTML: <div data-state="loading" />, CSS: &[data-state="loading"] {...}
+
+## Layout animation
+
+- As described before, we tend to want to avoid layout animation, because they require CPU. So ideally we use transform and opactiy. But sometimes, we do wanna do animations for layout: changing width, height and other properties.
+- FLIP technique: First, Last, Invert, Play
+- F: get the initial state of the element (element.getBoundingClientRect)
+- L: get the final state, after it's changed
+- I: calculate the deltas to move the element BACK to its original state (so it looks like it's in the first position, but actually it's in the last position, with inverted values)
+- P: Then animate everything to 0 - so this represents the final state
+- https://codepen.io/davidkpiano/pen/EbwrQQ
 
 ---
 

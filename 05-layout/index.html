@@ -14,23 +14,32 @@
       </figure>
       <div class="ui-content">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-          ullam hic consectetur ducimus neque ipsam incidunt voluptatem
-          voluptatum eos. Voluptatum minus omnis provident sit architecto,
-          mollitia nihil aspernatur sed praesentium.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ullam hic consectetur ducimus neque ipsam incidunt voluptatem voluptatum eos. Voluptatum minus omnis provident sit
+          architecto, mollitia nihil aspernatur sed praesentium.
         </p>
       </div>
     </div>
   </body>
   <script>
-    const figureEl = document.querySelector('.ui-figure');
-    const captionEl = document.querySelector('.ui-caption');
-    const appEl = document.querySelector('#app');
+    const figureEl = document.querySelector('.ui-figure')
+    const captionEl = document.querySelector('.ui-caption')
+    const appEl = document.querySelector('#app')
 
     appEl.addEventListener('click', () => {
-      app.dataset.state =
-        app.dataset.state === 'collapsed' ? 'expanded' : 'collapsed';
-    });
+      app.dataset.state = app.dataset.state === 'collapsed' ? 'expanded' : 'collapsed'
+    })
+
+    const flipAnimate = (prevRect, newRect) => {
+      const dx = prevRect.left - newRect.left
+      const dy = prevRect.top - newRect.top
+      const dw = prevRect.width - newRect.width
+      const dh = prevRect.height - newRect.height
+
+      return { dx, dy, dw, dh }
+    }
+
+    const prevRect = figureEl.getBoundingClientRect()
+
     // ...
   </script>
 </html>

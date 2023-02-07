@@ -48,7 +48,7 @@ body {
 
   &[data-state='error'] {
     --color: red;
-    animation-name: shake-form;
+    animation: shake 1s both;
   }
   &[data-state='success'] {
     --color: green;
