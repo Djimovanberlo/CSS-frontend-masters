@@ -26,19 +26,33 @@
     const appEl = document.querySelector('#app')
 
     appEl.addEventListener('click', () => {
+      const prevRect = figureEl.getBoundingClientRect()
+
       app.dataset.state = app.dataset.state === 'collapsed' ? 'expanded' : 'collapsed'
+
+      requestAnimationFrame(() => {
+        const finalRect = figureEl.getBoundingClientRect()
+        const { dx, dy, dw, dh } = flipAnimate(prevRect, finalRect)
+
+        figureEl.style.setProperty('--dx', dx)
+        figureEl.style.setProperty('--dy', dy)
+        figureEl.style.setProperty('--dw', dw)
+        figureEl.style.setProperty('--dh', dh)
+
+        figureEl.dataset.flip = 'invert'
+
+        requestAnimationFrame(() => (figureEl.dataset.flip = 'play'))
+      })
     })
 
-    const flipAnimate = (prevRect, newRect) => {
-      const dx = prevRect.left - newRect.left
-      const dy = prevRect.top - newRect.top
-      const dw = prevRect.width - newRect.width
-      const dh = prevRect.height - newRect.height
+    const flipAnimate = (prevRect, finalRect) => {
+      const dx = prevRect.left - finalRect.left
+      const dy = prevRect.top - finalRect.top
+      const dw = prevRect.width / finalRect.width
+      const dh = prevRect.height / finalRect.height
 
       return { dx, dy, dw, dh }
     }
-
-    const prevRect = figureEl.getBoundingClientRect()
 
     // ...
   </script>

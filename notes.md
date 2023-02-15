@@ -98,3 +98,4 @@ Setup
 - Some effects for button:hover - shine, scale, fill color from direction, iteratively animate containing letters
 - Button:active (so onClick) - scale down
 - Fix Next Image with relative position of wrapper (?) and layout="fill"
+- Changing position / sizes of elements: React Flip technique animation: https://css-tricks.com/everything-you-need-to-know-about-flip-animations-in-react/

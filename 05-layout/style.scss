@@ -64,6 +64,14 @@ body {
     transform-origin: top left;
   }
 
+  &[data-flip='invert']:before {
+    transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px)) scale(var(--dw), var(--dh));
+  }
+
+  &[data-flip='play']:before {
+    transform: none;
+    transition: transform 0.5s;
+  }
   // Add invert styles here to :before
   // ...
 
